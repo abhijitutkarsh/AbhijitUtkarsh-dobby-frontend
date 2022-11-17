@@ -10,7 +10,7 @@ function Upload(props) {
       // console.log(props.sess.user)
       var data = { email: props.sess.user.email };
       // var body = {"email": props.sess.user.email}
-      fetch("http://localhost:3001/todoData", {
+      fetch("https://abhijit-dobby-back.herokuapp.com/todoData", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
@@ -65,7 +65,7 @@ function Upload(props) {
   }
   function logout() {
     console.log("preesed");
-    fetch("http://localhost:3001/logout", { credentials: "include" })
+    fetch("https://abhijit-dobby-back.herokuapp.com/logout", { credentials: "include" })
       .then((res) => res.json())
       .then((result) => {})
       .catch((err) => {
@@ -77,7 +77,7 @@ function Upload(props) {
   const handleKeyUp = (event) => {
 
     // console.log(event.target.value);
-    fetch("http://localhost:3001/getData", {
+    fetch("https://abhijit-dobby-back.herokuapp.com/getData", {
         method: "POST",
         body: JSON.stringify({payload: event.target.value}),
         headers: {
@@ -119,7 +119,7 @@ function Upload(props) {
       {/* <iframe name="dummyframe" id="dummyframe" ></iframe> */}
 
       <form
-        action="http://localhost:3001/todo"
+        action="https://abhijit-dobby-back.herokuapp.com/todo"
         method="post"
         encType="multipart/form-data"
         target="_blank"
@@ -143,7 +143,7 @@ function Upload(props) {
           <div class="gallery">
             {/* <img className='card' src={`http://localhost:3001/uploads/${todo.pic}`} /> */}
             <img
-              src={`http://localhost:3001/uploads/${todo.pic}`}
+              src={`https://abhijit-dobby-back.herokuapp.com/uploads/${todo.pic}`}
               alt="Cinque Terre"
               width="600"
               height="400"

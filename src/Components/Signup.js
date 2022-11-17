@@ -1,8 +1,14 @@
-import React from "react";
+import React,{useEffect} from "react";
 import {Link,useNavigate} from 'react-router-dom'
 import './content.css'
-function SignUp()
+function SignUp(props)
 {
+	let navigate = useNavigate();
+useEffect(()=>{
+if(props.sess.user)
+navigate('/')
+},[props])
+
     function registerUser(e){
 		e.preventDefault();
 		// console.log(e.target[0].value)
@@ -12,7 +18,7 @@ function SignUp()
 			email: e.target[2].value,
 			password:e.target[3].value 
 		  }
-		  fetch("http://localhost:3001/signup", {
+		  fetch("https://abhijit-dobby-back.herokuapp.com/signup", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -28,6 +34,7 @@ function SignUp()
 			 .catch((err) => {
 				console.log(err);
 			 });
+			 navigate('/login')
 	}
 	
     return (

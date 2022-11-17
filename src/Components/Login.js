@@ -4,7 +4,10 @@ import {Link, useNavigate} from 'react-router-dom'
 function Login(props){
     const [success, setSuccess]= useState('');
     let navigate = useNavigate();
-
+useEffect(()=>{
+if(props.sess.user)
+navigate('/')
+},[props])
         function loggedIn(e) {
           e.preventDefault();
           // console.log(e.target[0].value)
@@ -13,7 +16,7 @@ function Login(props){
             password: e.target[1].value,
           };
           console.log(data);
-          fetch("http://localhost:3001/login", {
+          fetch("https://abhijit-dobby-back.herokuapp.com/login", {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
