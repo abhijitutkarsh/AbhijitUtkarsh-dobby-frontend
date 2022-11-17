@@ -149,7 +149,7 @@ function Upload(props) {
               height="400"
             />
 
-            <div className="desc">{todo.text}</div>
+            {/* <div className="desc">{todo.text}</div> */}
           </div>
         </>
       ))}
